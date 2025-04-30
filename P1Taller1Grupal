@@ -1,0 +1,133 @@
+package com.mycompany.p1taller1poo;
+import java.util.Scanner;
+
+public class P1TALLER1POO {
+
+    public static void main(String[] args) {
+        mostrarMenu();
+    }
+    public static void mostrarMenu() {
+        //ANDREA YASMIN SINMALEZA 
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+        do {
+            System.out.println("=== MENU ===");
+            System.out.println("1. IMPRIMIR HOLA MUNDO");
+            System.out.println("2. SUMAR DOS NUMEROS ");
+            System.out.println("3. COMPARAR DOS NUMEROS (Mayor - Menor)");
+            System.out.println("4. FIZZBUZZ");
+            System.out.println("5. SALIR");
+            System.out.print("SELECCIONE UNA OPCION: ");
+            opcion = scanner.nextInt();
+            switch (opcion) {
+                case 1:
+                    imprimirHolaMundo();
+                    break;
+                case 2:
+                    sumarDosNumeros();
+                    break;
+                case 3:
+                    compararDosNumeros();
+                    break;
+                case 4:
+                    FizzBuzz();
+                    break;
+                case 5:
+                    System.out.println("SALIENDO DEL PROGRAMA...");
+                    break;
+                default:
+                    System.out.println("OPCION NO VALIDA. INTENTE DE NUEVO.");
+            }
+        } while (opcion != 5);
+        scanner.close();
+    }
+
+    
+    public static void imprimirHolaMundo() {
+        //DIEGO SEMANATE
+        System.out.println("Se imprime el mensaje de: ");
+        System.out.println("--- HOLA MUNDO ---");
+
+    }
+
+    public static void sumarDosNumeros() {
+        //JAIR URIBE
+        Scanner sc = new Scanner(System.in);
+        double num1;
+        double num2;
+        System.out.print("INGRESE EL PRIMER NUMERO: ");
+        num1 = sc.nextDouble();
+        while(num1<0 || num1 >100){
+            System.out.println("No permitido su rango (0-100)");
+        }
+        System.out.print("INGRESE EL SEGUNDO NUMERO: ");
+        num2 = sc.nextDouble();
+        while(num2<0 || num2 >100){
+            System.out.println("No permitido su rango (0-100)");
+        }
+        System.out.println("LA SUMA ES: " + (num1 + num2));
+    }
+
+    public static void compararDosNumeros() {
+        //TANIA AGUAVIL
+        Scanner sc = new Scanner(System.in);
+        double num1, num2;
+        System.out.print("INGRESE EL PRIMER NUMERO: ");
+        num1 = sc.nextDouble();
+        System.out.print("INGRESE EL SEGUNDO NUMERO: ");
+        num2 = sc.nextDouble();
+
+        System.out.println("RESULTADOS:");
+        if (num1 > num2) {
+            System.out.println(num1 + " ES MAYOR QUE " + num2);
+        } else if (num2 > num1) {
+            System.out.println(num2 + " ES MAYOR QUE " + num1);
+        } else {
+            System.out.println("AMBOS NUMEROS SON IGUALES.");
+        }
+
+        double maximo;
+        double minimo;
+
+        if (num1 > num2) {
+            maximo = num1;
+            minimo = num2;
+        } else if (num2 > num1) {
+            maximo = num2;
+            minimo = num1;
+        } else {
+            maximo = minimo = num1; 
+        }
+
+        double promedio = (num1 + num2) / 2;
+    //salida de los datos ingresados, por mensaje
+        System.out.println("MAXIMO: " + maximo);
+        System.out.println("MINIMO: " + minimo);
+        System.out.println("PROMEDIO: " + promedio);
+    }
+
+    public static void FizzBuzz(){
+        //BRYAN CEVALLOS
+        Scanner sc = new Scanner(System.in);
+        int numero;
+        System.out.print("INGRESE UN NUMERO POSITIVO (0-100): ");
+        numero = sc.nextInt();
+        while (numero < 0 || numero > 100) {
+            System.out.println("NO PERMITIDO SU RANGO (0-100)");
+            System.out.print("INGRESE UN NUMERO POSITIVO (0-100): ");
+            numero = sc.nextInt();
+        }        
+        for (int i = 1; i <= numero; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
+        }
+    }
+    
+}
